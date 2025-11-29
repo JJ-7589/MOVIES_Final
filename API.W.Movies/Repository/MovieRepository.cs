@@ -37,11 +37,11 @@ namespace API.W.Movies.Repository
 
         public async Task<bool> DeleteMovieAsync(int id)
         {
-            var movie = await GetMovieAsync(id); //primero consulto que sí exista la categoría
+            var movie = await GetMovieAsync(id); 
 
             if (movie == null)
             {
-                return false; //la categoría no existe
+                return false; 
             }
 
             _context.Movies.Remove(movie);
@@ -56,11 +56,11 @@ namespace API.W.Movies.Repository
                 .ToListAsync();
         }
 
-        public async Task<Movie> GetMovieAsync(int id) //async y el await
+        public async Task<Movie> GetMovieAsync(int id) 
         {
             return await _context.Movies
                 .AsNoTracking()
-                .FirstOrDefaultAsync(c => c.IdM == id); //lambda expressions
+                .FirstOrDefaultAsync(c => c.IdM == id);
         }
 
         public async Task<bool> UpdateMovieAsync(Movie movie)

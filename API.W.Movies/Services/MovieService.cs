@@ -114,10 +114,10 @@ namespace API.W.Movies.Services
                 throw new InvalidOperationException($"Ya existe una pelicula con el nombre de '{dto.Name}'");
             }
 
-            //Mapear el DTO a la entidad
+            
             _mapper.Map(dto, movieExists);
 
-            //Actualizamos la categoria en el repositorio
+            
             var movieUpdated = await _movieRepository.UpdateMovieAsync(movieExists);
 
             if (!movieUpdated)
@@ -125,7 +125,7 @@ namespace API.W.Movies.Services
                 throw new Exception("Ocurrió un error al actualizar la pelicula.");
             }
 
-            //Retornar el DTO actualizado
+            
             return _mapper.Map<MovieDto>(movieExists);
         }
     }

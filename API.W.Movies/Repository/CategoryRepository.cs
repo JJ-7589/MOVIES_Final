@@ -31,18 +31,18 @@ namespace API.W.Movies.Repository
 
         public async Task<bool> CreateCategoryAsync(Category category)
         {
-            category.CreatedDate = DateTime.UtcNow;
+            category.CreationsDate = DateTime.UtcNow;
             await _context.Categories.AddAsync(category);
             return await SaveAsync();
         }
 
         public async Task<bool> DeleteCategoryAsync(int id)
         {
-            var category = await GetCategoryAsync(id); //primero consulto que sí exista la categoría
+            var category = await GetCategoryAsync(id); 
 
             if (category == null)
             {
-                return false; //la categoría no existe
+                return false; 
             }
 
             _context.Categories.Remove(category);
@@ -57,16 +57,16 @@ namespace API.W.Movies.Repository
                 .ToListAsync();
         }
 
-        public async Task<Category> GetCategoryAsync(int id) //async y el await
+        public async Task<Category> GetCategoryAsync(int id) 
         {
             return await _context.Categories
                 .AsNoTracking()
-                .FirstOrDefaultAsync(c => c.Id == id); //lambda expressions
+                .FirstOrDefaultAsync(c => c.Id == id); 
         }
 
         public async Task<bool> UpdateCategoryAsync(Category category)
         {
-            category.ModifiedDate = DateTime.UtcNow;
+            category.ModidyedDate = DateTime.UtcNow;
             _context.Categories.Update(category);
             return await SaveAsync();
         }

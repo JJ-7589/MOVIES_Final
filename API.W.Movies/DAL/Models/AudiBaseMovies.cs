@@ -4,7 +4,7 @@ namespace API.W.Movies.DAL.Models
 {
     public class AudiBaseMovies
     {
-        [Key] //Este data annotation indica que el campo es la clave primaria
+        [Key]
         public virtual int IdM { get; set; }
         public virtual  DateTime CreatedDate { get; set; }
 

@@ -4,11 +4,11 @@ namespace API.W.Movies.DAL.Models
 {
     public class AuditBase
     {
-        [Key] //Este data annotation indica que el campo es la clave primaria
+        [Key] 
         public virtual int Id { get; set; }
 
-        public virtual DateTime CreatedDate { get; set; }
+        public virtual DateTime CreationsDate { get; set; }
 
-        public virtual DateTime? ModifiedDate { get; set; }
+        public virtual DateTime? ModidyedDate { get; set; }
     }
 }

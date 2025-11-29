@@ -60,11 +60,11 @@ namespace API.W.Movies.Controllers
             {
                 var createdCategory = await _categoryService.CreateCategoryAsync(categoryCreateDto);
 
-                //Vamos a retornar un 201 Created con la ruta para obtener la categoría creada
+                
                 return CreatedAtRoute(
-                    "GetCategoryAsync",                 //1er parámetro: nombre de la ruta
-                    new { id = createdCategory.Id },    //2o parámetro: los valores de los parámetros de la ruta
-                    createdCategory                     //3er parámetro: el objeto creado
+                    "GetCategoryAsync",                 
+                    new { id = createdCategory.Id },    
+                    createdCategory                    
                     );
             }
             catch (InvalidOperationException ex) when (ex.Message.Contains("Ya existe"))
@@ -119,7 +119,7 @@ namespace API.W.Movies.Controllers
             try
             {
                 var deletedCategory = await _categoryService.DeleteCategoryAsync(id);
-                return Ok(deletedCategory); //retorno un OK para mostrar el "True" de la eliminación
+                return Ok(deletedCategory); 
             }
             catch (InvalidOperationException ex) when (ex.Message.Contains("No se encontró"))
             {

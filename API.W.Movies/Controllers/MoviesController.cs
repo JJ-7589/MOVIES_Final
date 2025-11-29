@@ -61,11 +61,11 @@ namespace API.W.Movies.Controllers
             {
                 var createdMovie = await _moviesService.CreateMovieAsync(movieCreateDto);
 
-                //Vamos a retornar un 201 Created con la ruta para obtener la categoría creada
+                
                 return CreatedAtRoute(
-                    "GetMoviesAsync",                 //1er parámetro: nombre de la ruta
-                    new { id = createdMovie.IdM },    //2o parámetro: los valores de los parámetros de la ruta
-                    createdMovie                     //3er parámetro: el objeto creado
+                    "GetMoviesAsync",                 
+                    new { id = createdMovie.IdM },   
+                    createdMovie                     
                     );
             }
             catch (InvalidOperationException ex) when (ex.Message.Contains("Ya existe"))
@@ -120,7 +120,7 @@ namespace API.W.Movies.Controllers
             try
             {
                 var deletedMovie = await _moviesService.DeleteMovieAsync(id);
-                return Ok(deletedMovie); //retorno un OK para mostrar el "True" de la eliminación
+                return Ok(deletedMovie); 
             }
             catch (InvalidOperationException ex) when (ex.Message.Contains("No se encontró"))
             {
