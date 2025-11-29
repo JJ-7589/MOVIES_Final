@@ -34,7 +34,7 @@ namespace API.W.Movies.Services
 
             if (categoryExists)
             {
-                throw new InvalidOperationException($"Ya existe una categoría con el nombre de '{categoryCreateDto.Name}'");
+                throw new InvalidOperationException($"Ya existe una categoría con de nombre  '{categoryCreateDto.Name}'");
             }
 
             
@@ -59,7 +59,7 @@ namespace API.W.Movies.Services
 
             if (categoryExists == null)
             {
-                throw new InvalidOperationException($"No se encontró la categoría con ID: '{id}'");
+                throw new InvalidOperationException($"No se encontró la categoría ID: '{id}'");
             }
 
             
@@ -67,7 +67,7 @@ namespace API.W.Movies.Services
 
             if (!categoryDeleted)
             {
-                throw new Exception("Ocurrió un error al eliminar la categoría.");
+                throw new Exception("Ocurrió un error al eliminar esta categoría.");
             }
 
             return categoryDeleted;
@@ -104,14 +104,14 @@ namespace API.W.Movies.Services
 
             if (categoryExists == null)
             {
-                throw new InvalidOperationException($"No se encontró la categoría con ID: '{id}'");
+                throw new InvalidOperationException($"No se encontró la categoría de ID: '{id}'");
             }
 
             var nameExists = await _categoryRepository.CategoryExistsByNameAsync(dto.Name);
 
             if (nameExists)
             {
-                throw new InvalidOperationException($"Ya existe una categoría con el nombre de '{dto.Name}'");
+                throw new InvalidOperationException($"Ya existe una categoría con de nombre  '{dto.Name}'");
             }
 
             
@@ -122,7 +122,7 @@ namespace API.W.Movies.Services
 
             if (!categoryUpdated)
             {
-                throw new Exception("Ocurrió un error al actualizar la categoría.");
+                throw new Exception("Ocurrió un error al actualizar esta categoría.");
             }
 
             
